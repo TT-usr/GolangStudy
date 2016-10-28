@@ -17,7 +17,7 @@
 
 | 文件夹 | 内容 |
 | --- | --- |
-| calcproj | 一款基于Go语言的命令行计算器，仅包含加法 和 开平方，测试函数小Demo（内含简单的单元测试） |
-| Gobase | 包含Go基础学习代码示例 |
+| [calcproj](https://github.com/zichenJack/GolangStudy/tree/master/calcproj) | 一款基于Go语言的命令行计算器，仅包含加法 和 开平方，测试函数小Demo（内含简单的单元测试） |
+| [Gobase](https://github.com/zichenJack/GolangStudy/tree/master/GoBase) | 包含Go基础学习代码示例 |
 	
 
