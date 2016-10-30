@@ -1,8 +1,37 @@
 package main
+
 // 利用test替换fmt包名，接下来可以用test来代替fmt使用
 import test "fmt"
 
+type PersonInfo struct {
+	ID      string
+	Name    string
+	Address string
+}
+
 func main() {
+	var personDB := creatMap()
+	insert(personDB)
+	search(personDB)
+}
+
+func creatMap() personDB map[string]PersonInfo {
+	var personDB map[string]PersonInfo
+	// personDB = make(map[string]PersonInfo)
+	test.Println(personDB)
+	return personDB
+}
+
+func insert(personDB map[string]PersonInfo) {
+	personDB["12345"] = PersonInfo{"12345", "Tom", "5678"}
+	test.Println(personDB)
+}
+
+func search(personDB map[string]PersonInfo) {
+	test.Println(personDB)
+}
+
+func origin() {
 	test.Println("测试")
 	// 创建map的格式 make(map[key-type]value-type)
 	m := make(map[string]int)
@@ -16,7 +45,7 @@ func main() {
 	v1 := m["k1"]
 	test.Println(v1)
 
-	test.Println("len:" ,len(m))
+	test.Println("len:", len(m))
 
 	delete(m, "k2")
 
@@ -27,8 +56,8 @@ func main() {
 	//格式为 ： value,key ：= map[key]
 	prs, _ := m["k1"]
 	_, prs1 := m["k1"]
-	test.Println("prs: ",prs , " prs1 :", prs1)
+	test.Println("prs: ", prs, " prs1 :", prs1)
 
-	n := map[string]int{"foo": 1, "bar" :2}
+	n := map[string]int{"foo": 1, "bar": 2}
 	test.Println("map:", n)
 }
