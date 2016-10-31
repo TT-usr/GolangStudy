@@ -10,15 +10,16 @@ type PersonInfo struct {
 }
 
 func main() {
-	var personDB := creatMap()
-	insert(personDB)
-	search(personDB)
+	personDB := creatMap()
+	// insert(personDB)
+	// search(personDB)
 }
 
 func creatMap() personDB map[string]PersonInfo {
 	var personDB map[string]PersonInfo
-	// personDB = make(map[string]PersonInfo)
+	personDB = make(map[string]PersonInfo)
 	test.Println(personDB)
+	personDB["12345"] = PersonInfo{"12345", "Tom", "5678"}
 	return personDB
 }
 
