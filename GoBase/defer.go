@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// defer主要用于不管任何情况下，都能保证会被执行
 func main() {
 	// defer 语句会延迟函数的执行直到上层函数返回。
 	// defer 只能描述方法？！
@@ -23,4 +24,9 @@ func main() {
 	}
 
 	fmt.Println("done")
+
+	defer func() {
+		//延迟闭包，如果觉得defer描述一条语句不够，可用闭包来解决
+	}()
+
 }
