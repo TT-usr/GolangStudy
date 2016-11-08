@@ -16,7 +16,7 @@ func main() {
 }
 
 func creatMap() personDB map[string]PersonInfo {
-	var personDB map[string]PersonInfo
+	var personDB map[string]PersonInfo// personDB 变量名  string 为key类型 personInfo 为值类型
 	personDB = make(map[string]PersonInfo)
 	test.Println(personDB)
 	personDB["12345"] = PersonInfo{"12345", "Tom", "5678"}
@@ -30,6 +30,13 @@ func insert(personDB map[string]PersonInfo) {
 
 func search(personDB map[string]PersonInfo) {
 	test.Println(personDB)
+	personDB, ok := personDB["1234"]
+
+	if ok {
+		test.Println("找到了")
+	}else{
+		test.Println("没找到")
+	}
 }
 
 func origin() {

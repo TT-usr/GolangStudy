@@ -32,6 +32,8 @@ func main() {
 	modifyArr(b)
 	fmt.Println(b)
 }
+
+// 传递的不是指针， 内部无法修改外部传进来的数组变量
 func modifyArr(array [5]int) {
 	array[0] = 100
 	fmt.Println(array)

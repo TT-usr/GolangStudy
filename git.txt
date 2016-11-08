@@ -1,0 +1,177 @@
+cd  E:打开E盘
+cd fileA 打开文件A
+cd 'fileB etc'打开文件fileB etc
+ls 列出当前目录下所有文件
+
+
+//~~~~~~~~~~~~~~GitHhb~~~~~~~~~~~~~~~~~
+在github已经建立好了项目SingleTouchView
+mkdir SingleTouchView //如果没有该文件夹的话，有的话，就直接　cd SingleTouchView
+cd SingleTouchView
+git init
+touch README.md //代表创建文件READMD.md
+git add -A      //当前文件夹下所有的文件等
+git commit -m "此次提交的log" //
+git remote add origin git@github.com:wangziqiang/SingleTouchView.git // 与远程库取得联系，第一次取得联系的时候，需要此句代码
+git pull origin master // 将远程库pull下来最新代码
+git push -u origin master // 将此次要提交的代码提交到远程库中
+
+//download 别的项目
+git clone https://github.com/sdaityari/my_git_project.git
+
+//tag 每次发布版本都要打一个tag，在master分支打tag
+$ git tag -a v1.4 -m "version 1.4"
+$ git push –-tags
+$ git show v1.4
+把本地tag推送到远程
+git push --tags
+获取远程tag
+git fetch origin tag <tagname>
+
+
+
+
+//分支
+查看分支：git branch 结果中前面有星号的是处于该分支
+创建分支：git branch dev 创建一个dev分支
+切换分支：git checkout dev 切换到dev分支 （git checkout master 切换到master主分支）
+(远程没有dev)将本地新创建的分支推送到远程： git push --set-upstream origin dev 
+(远程已有dev)建立本地分支和远程分支的关联，使用git branch track branch-name origin/branch-name
+合并分支(先切换到master分支，然后)：git merge dev 当dev分支开发稳定后，合并到主分支master中。然后 git add -A，commit,push
+(可选)合并完分支后，对分支dev进行删除
+git branch -d dev   (-d，表示“在分支已经合并到主干后删除分支”。如果使用大写的-D的话，则表示“不论如何都删除分支”，)
+// 将远程库里面的多个分支进行追踪
+远程库里面有 多个分支 master , gh-pages .
+git checkout -b [分支名] [远程名]/[分支名]
+
+//删除远程分支和tag
+在Git v1.7.0 之后，可以使用这种语法删除远程分支：
+$ git push origin --delete <branchName>
+删除tag这么用：
+git push origin --delete tag <tagname>
+//
+重命名远程分支
+在git中重命名远程分支，其实就是先删除远程分支，然后重命名本地分支，再重新提交一个远程分支。
+$ git push --delete origin devel  (删除远程分支)
+重命名本地分支：
+git branch -m devel develop  (重命名本地分支)
+重新提交一个远程分支
+git push --set-upstream origin dev(重新提交一个远程分支)
+
+
+
+
+// 新加入伙伴了(http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013760174128707b935b0be6fc4fc6ace66c4f15618f8d000)
+git clone https://wangziqiang@bitbucket.org/roadshow_center/roadshow_android.git
+此时只能看见master分支
+现在，你的小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支：
+git checkout -b dev origin/dev
+现在，他就可以在dev上继续修改，然后，时不时地把dev分支push到远程：
+git commit -m "add /usr/bin/env"
+git push origin dev
+如果没有与远程关联：git branch --set-upstream dev origin/dev
+
+// 开始
+因此，多人协作的工作模式通常是这样：
+
+    首先，可以试图用git push origin branch-name推送自己的修改；
+
+    如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+    如果合并有冲突，则解决冲突，并在本地提交；
+
+    没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+
+如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
+
+这就是多人协作的工作模式，一旦熟悉了，就非常简单。
+小结
+
+    查看远程库信息，使用git remote -v；
+
+    本地新建的分支如果不推送到远程，对其他人就是不可见的；
+
+    从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+
+    在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+
+    建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+
+    从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
+// 结束
+
+
+------------------------------------关于可能出现的错误----------------------------------
+1.在执行
+$ git remote add origin git@github.com:defnngj/hello-world.git
+错误提示：fatal: remote origin already exists.
+解决办法：
+$ git remote rm origin
+然后在执行：$ git remote add origin git@github.com:defnngj/hello-world.git 就不会报错误了
+
+2. 在执行
+$ git push origin master
+错误提示：error:failed to push som refs to.......
+解决办法：
+$ git pull origin master // 先把远程服务器github上面的文件拉下来，再push 上去。
+
+----------------------------
+http://www.yiibai.com/git/git_push.html
+ git push命令用于将本地分支的更新，推送到远程主机。它的格式与git pull命令相仿。
+
+$ git push <远程主机名> <本地分支名>:<远程分支名>
+
+注意，分支推送顺序的写法是<来源地>:<目的地>，所以git pull是<远程分支>:<本地分支>，而git push是<本地分支>:<远程分支>。
+
+如果省略远程分支名，则表示将本地分支推送与之存在”追踪关系”的远程分支(通常两者同名)，如果该远程分支不存在，则会被新建。
+
+$ git push origin master
+
+上面命令表示，将本地的master分支推送到origin主机的master分支。如果后者不存在，则会被新建。
+
+如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支。
+
+$ git push origin :master
+# 等同于
+$ git push origin --delete master
+
+上面命令表示删除origin主机的master分支。
+
+如果当前分支与远程分支之间存在追踪关系，则本地分支和远程分支都可以省略。
+
+$ git push origin
+
+上面命令表示，将当前分支推送到origin主机的对应分支。
+
+如果当前分支只有一个追踪分支，那么主机名都可以省略。
+
+$ git push
+
+如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用git push。
+
+$ git push -u origin master
+
+上面命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push了。
+
+不带任何参数的git push，默认只推送当前分支，这叫做simple方式。此外，还有一种matching方式，会推送所有有对应的远程分支的本地分支。Git 2.0版本之前，默认采用matching方法，现在改为默认采用simple方式。如果要修改这个设置，可以采用git config命令。
+
+$ git config --global push.default matching
+# 或者
+$ git config --global push.default simple
+
+还有一种情况，就是不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机，这时需要使用–all选项。
+
+$ git push --all origin
+
+上面命令表示，将所有本地分支都推送到origin主机。
+
+如果远程主机的版本比本地版本更新，推送时Git会报错，要求先在本地做git pull合并差异，然后再推送到远程主机。这时，如果你一定要推送，可以使用–force选项。
+
+$ git push --force origin
+
+上面命令使用–force选项，结果导致在远程主机产生一个”非直进式”的合并(non-fast-forward merge)。除非你很确定要这样做，否则应该尽量避免使用–force选项。
+
+最后，git push不会推送标签(tag)，除非使用–tags选项。
+
+$ git push origin --tags
+
