@@ -1,5 +1,6 @@
 package qsort
 
+// 快速排序
 func quickSort(values []int, left, right int) {
 	temp := values[left]
 	p := left
