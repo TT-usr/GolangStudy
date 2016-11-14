@@ -19,5 +19,6 @@
 | --- | --- |
 | [calcproj](https://github.com/zichenJack/GolangStudy/tree/master/calcproj) | 一款基于Go语言的命令行计算器，仅包含加法 和 开平方，测试函数小Demo（内含简单的单元测试） |
 | [Gobase](https://github.com/zichenJack/GolangStudy/tree/master/GoBase) | 包含Go基础学习代码示例 |
+|[GoSort](https://github.com/zichenJack/GolangStudy/tree/master/sorter)|GO语言编写的快速排序以及冒泡排序算法,未来考虑会新增其他算法。|
 	
 
