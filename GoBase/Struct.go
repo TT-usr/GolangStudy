@@ -16,6 +16,7 @@ var (
 	v2 = Ver{X: 1}  // Y:0 被省略
 	v3 = Ver{}      // X:0 和 Y:0
 	v4 = &Ver{1, 2} // 类型为 *Ver
+	v5 = new(Ver)
 )
 
 func main() {
@@ -30,5 +31,5 @@ func main() {
 	p.x = 100
 	fmt.Println(p)
 
-	fmt.Println(v1, v2, v3, v4)
+	fmt.Println(v1, v2, v3, v4, v5)
 }
